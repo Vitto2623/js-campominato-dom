@@ -4,11 +4,14 @@
     padding: 0;
 }
 
+body{
+    font-family: 'Fredoka', sans-serif;
+}
+
 /* HEADER */
 header{
     height: 100px;
     width: 100%;
-    background-color: lightgray;
 }
 
 header .container-1{
@@ -24,19 +27,33 @@ header .container-1{
 .container-1 #nav-left{
     font-size: 1.4em;
     font-weight: bolder;
+    color: blue;
 }
 
 .container-1 #nav-right{
     font-size: 1.2em;
 }
 
+#nav-right label{
+    margin-right: 5px;
+}
+
 #nav-right select{
     width: 150px;
-    padding: 2px 0px;
+    padding: 7px 0px;
+    text-align: center;
+    font-size: 0.9em;
+    color: blue;
 }
 
 #nav-right button{
-    padding: 2px 30px;
+    padding: 8px 30px;
+    border-radius: 50px;
+    font-size: 0.8em;
+    margin-left: 8px;
+    border: 2px solid red;
+    background-color: lightgray;
+    color: red;
 }
 
 /* MAIN */
@@ -44,6 +61,14 @@ main{
     height: 1200px;
     background-color: aquamarine;
     position: relative;
+}
+
+#points{
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translate(-50%, -8%);
+    font-size: 1.9em;
 }
 
 #grid{

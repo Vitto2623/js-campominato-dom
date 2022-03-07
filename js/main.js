@@ -6,6 +6,7 @@ let numeroCell;
 let dimensioniCell;
 const buttonElement = document.getElementById('btn');
 buttonElement.addEventListener('click', function(){
+    let points = 0;
     gridElement.innerHTML = "";
     if(sceltaPlayer.value == "facile"){
         numeroCell = 100;
@@ -41,8 +42,13 @@ buttonElement.addEventListener('click', function(){
         square.addEventListener('click', function(){
             if (!numeroBombe.includes(i) ){
                 square.classList.add('cliccato');
+                points++
+                writeInElementById('points', `Il tuo punteggio è : ${points}` )
             }else {
+                writeInElementById('points', `Hai perso , il tuo punteggio è : ${points}` )
                 square.classList.add('bomba');
+                points = 0;
+                gridElement.innerHTML = "";
             }
         });
         
@@ -58,4 +64,7 @@ function randomNumber(minimumValue, maximumValue){
     return valorePc;
 }
 
-//creo una funziona che 
+//creo una funziona che aggiunge l'elemento id e una stringa
+function writeInElementById(elementId, string){
+    document.getElementById(elementId).innerHTML = string;
+}
