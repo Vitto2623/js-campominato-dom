@@ -45,10 +45,8 @@ buttonElement.addEventListener('click', function(){
                 points++
                 writeInElementById('points', `Il tuo punteggio è : ${points}` )
             }else {
-                writeInElementById('points', `Hai perso , il tuo punteggio è : ${points}` )
-                square.classList.add('bomba');
-                points = 0;
                 gridElement.innerHTML = "";
+                writeInElementById('points', `Hai perso , il tuo punteggio è : ${points} <br> Le bombe stavano: ${numeroBombe}`)
             }
         });
         
