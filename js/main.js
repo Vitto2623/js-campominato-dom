@@ -4,6 +4,7 @@ const gridElement = document.getElementById("grid");
 const sceltaPlayer = document.getElementById("difficolta");
 let numeroCell;
 let dimensioniCell;
+let gameOver = false;
 const buttonElement = document.getElementById('btn');
 buttonElement.addEventListener('click', function(){
     let points = 0;
@@ -40,14 +41,16 @@ buttonElement.addEventListener('click', function(){
         gridElement.appendChild(square);
         square.innerHTML = i;
         square.addEventListener('click', function(){
-            if (!numeroBombe.includes(i) ){
-                square.classList.add('cliccato');
-                points++
-                writeInElementById('points', `Il tuo punteggio è : ${points}` )
-            }else {
-                writeInElementById('points', `Hai perso , il tuo punteggio è : ${points} <br> Ricomincia un'altra partita` )
-                square.classList.add('bomba');
-                gridElement.innerHTML = "";
+            if (!gameOver){
+                if (!numeroBombe.includes(i) ){
+                    square.classList.add('cliccato');
+                    points++
+                    writeInElementById('points', `Il tuo punteggio è : ${points}` )
+                }else {
+                    writeInElementById('points', `Hai perso , il tuo punteggio è : ${points} <br> Ricomincia un'altra partita` )
+                    square.classList.add('bomba');
+                    gameOver = true;
+                }
             }
         });
         
